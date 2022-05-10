@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Exception\**" />
+    <EmbeddedResource Remove="Exception\**" />
+    <None Remove="Exception\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ExecPowerTask.cs" />
+  </ItemGroup>
+
+</Project>
