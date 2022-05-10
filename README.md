@@ -4,7 +4,7 @@
 A version of 64-bit Windows with .NET 6.0 single file deployment support.
 
 **Binaries**<br/>
-Check the releases page for prebuilt executables.
+Check the [releases](https://github.com/stchan/NoSnooze) page for prebuilt executables.
 
 **License**<br/>
 NoSnooze is released under the MIT X11 License.
