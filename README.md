@@ -50,7 +50,7 @@ Starts a new shell, and prevents sleep until it exits.
 Prevents sleep until the user presses any key, or terminates the shell.
 
 
-**Changelog**
+<br/>**Changelog**
 
 1.0.3 - Renamed to StopSnooze. NoSnooze is a brand of caffeine pills sold by Circle K in the USA.
 
