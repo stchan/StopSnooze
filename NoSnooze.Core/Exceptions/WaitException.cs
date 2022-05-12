@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using NoSnooze.Core;
+using StopSnooze.Core;
 
-namespace NoSnooze.Core.Exceptions
+namespace StopSnooze.Core.Exceptions
 {
     /// <summary>
     /// A <see cref="WaitException"/> may be thrown if waiting for a process to exit fails
     /// </summary>
-    public class WaitException : NoSnoozeException
+    public class WaitException : StopSnoozeException
     {
         public WaitException(WaitExitResult result, string message) : base(message)
         { }

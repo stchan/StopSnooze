@@ -2,12 +2,12 @@
 	<PropertyGroup>
 		<Company>Sherman Chan</Company>
 		<Copyright>Copyright © 2022</Copyright>
-		<Product>NoSnooze</Product>
-		<AssemblyProduct>NoSnooze</AssemblyProduct>
-		<AssemblyVersion>1.0.2.0</AssemblyVersion>
+		<Product>StopSnooze</Product>
+		<AssemblyProduct>StopSnooze</AssemblyProduct>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
 		<AssemblyTrademark></AssemblyTrademark>
 		<AssemblyCulture></AssemblyCulture>
-		<FileVersion>1.0.2.0</FileVersion>
-		<Version>1.0.2.0</Version>
+		<FileVersion>1.0.3.0</FileVersion>
+		<Version>1.0.3.0</Version>
 	</PropertyGroup>
 </Project>

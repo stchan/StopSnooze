@@ -2,7 +2,7 @@
 using CommandLine.Text;
 #nullable disable
 
-namespace NoSnooze.Runner
+namespace StopSnooze.Runner
 {
     public interface IOptions
     {
@@ -24,7 +24,7 @@ namespace NoSnooze.Runner
         [Option('w', "wait", Required = false, Default = null, HelpText = "Maximum number of seconds to wait before exiting. Value must be from 1 to 2147483.")]
         public int? MaxWaitTime { get; set; }
 
-        [Usage(ApplicationAlias = "NoSnooze")]
+        [Usage(ApplicationAlias = "StopSnooze")]
         public static IEnumerable<Example> Examples
         {
             get

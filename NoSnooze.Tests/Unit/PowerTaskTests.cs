@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 using Xunit;
 
-using NoSnooze.Core;
-using NoSnooze.Core.Exceptions;
+using StopSnooze.Core;
+using StopSnooze.Core.Exceptions;
 
-namespace NoSnooze.Tests.Unit
+namespace StopSnooze.Tests.Unit
 {
     public class PowerTaskTests
     {

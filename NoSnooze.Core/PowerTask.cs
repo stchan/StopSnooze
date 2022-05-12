@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 
-using NoSnooze.Core.Exceptions;
+using StopSnooze.Core.Exceptions;
 
-namespace NoSnooze.Core
+namespace StopSnooze.Core
 {
 
     public class PowerTask : IPowerTaskSetSuccess, IPowerTaskClear, IPowerTask

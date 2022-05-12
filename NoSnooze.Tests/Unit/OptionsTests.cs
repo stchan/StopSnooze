@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 using Xunit;
 
-using NoSnooze.Runner;
+using StopSnooze.Runner;
 
-namespace NoSnooze.Tests.Unit
+namespace StopSnooze.Tests.Unit
 {
     public class OptionsTests
     {

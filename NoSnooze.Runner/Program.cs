@@ -1,9 +1,9 @@
 ﻿using CommandLine;
 using CommandLine.Text;
 
-using NoSnooze.Core;
-using NoSnooze.Core.Exceptions;
-using NoSnooze.Runner;
+using StopSnooze.Core;
+using StopSnooze.Core.Exceptions;
+using StopSnooze.Runner;
 
 var parseResult = CommandLine.Parser.Default.ParseArguments<Options>(args);
 IPowerTask powerTask = PowerTask.Create();

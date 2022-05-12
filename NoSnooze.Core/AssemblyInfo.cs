@@ -17,4 +17,4 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("fdb230c6-9e0c-43f8-96c5-b3b3862a9cf6")]
 
-[assembly: InternalsVisibleTo("NoSnooze.Tests")]
+[assembly: InternalsVisibleTo("StopSnooze.Tests")]

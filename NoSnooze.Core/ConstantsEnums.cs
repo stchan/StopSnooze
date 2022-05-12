@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoSnooze.Core
+namespace StopSnooze.Core
 {
 
     public enum StateChangeFailure
     {
-        [EnumMessage("Failed to set NoSnooze state - could not set execution state flags (EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS)")]
+        [EnumMessage("Failed to set StopSnooze state - could not set execution state flags (EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS)")]
         SetNoSnoozeFailed,
-        [EnumMessage("Failed to clear NoSnooze state - could not set execution state flags (EXECUTION_STATE.ES_CONTINUOUS)")]
+        [EnumMessage("Failed to clear StopSnooze state - could not set execution state flags (EXECUTION_STATE.ES_CONTINUOUS)")]
         ClearNoSnoozeFailed
     }
 

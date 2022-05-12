@@ -3,16 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSnooze.Core", "NoSnooze.Core\NoSnooze.Core.csproj", "{44703FC9-2C2A-430C-A982-C50D11895497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StopSnooze.Core", "NoSnooze.Core\StopSnooze.Core.csproj", "{44703FC9-2C2A-430C-A982-C50D11895497}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8F5BC40-186A-4F2A-81BF-BED0028E3C83}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSnooze.Runner", "NoSnooze.Runner\NoSnooze.Runner.csproj", "{C6E59734-21C4-4C78-9039-E14F0E97DCA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StopSnooze.Runner", "NoSnooze.Runner\StopSnooze.Runner.csproj", "{C6E59734-21C4-4C78-9039-E14F0E97DCA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSnooze.Tests", "NoSnooze.Tests\NoSnooze.Tests.csproj", "{2A0085CD-6CE7-453A-AD95-32AF29C50A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StopSnooze.Tests", "NoSnooze.Tests\StopSnooze.Tests.csproj", "{2A0085CD-6CE7-453A-AD95-32AF29C50A9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using NoSnooze.Core;
+using StopSnooze.Core;
 
-namespace NoSnooze.Core.Exceptions
+namespace StopSnooze.Core.Exceptions
 {
     /// <summary>
     /// A <see cref="StateChangeException"/> may be thrown
     /// if a thread can't change its execution state
     /// (Win32 API returns 0)
     /// </summary>
-    public class StateChangeException : NoSnoozeException
+    public class StateChangeException : StopSnoozeException
     {
         public StateChangeException(string message, EXECUTION_STATE failure) : base(message)
         {

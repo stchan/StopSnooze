@@ -4,11 +4,11 @@ using System.IO;
 using CommandLine;
 using CommandLine.Text;
 
-using NoSnooze.Core;
-using NoSnooze.Core.Exceptions;
-using NoSnooze.Runner;
+using StopSnooze.Core;
+using StopSnooze.Core.Exceptions;
+using StopSnooze.Runner;
 
-namespace NoSnooze.Runner
+namespace StopSnooze.Runner
 {
     public interface IJobRunner
     {
@@ -39,7 +39,7 @@ namespace NoSnooze.Runner
                 IOptions jobOptions = ((Parsed<Options>)(_optionsParseResult)).Value;
                 if (jobOptions.Validates())
                 {
-                    jobExitCode = RunNoSnoozeJob(jobOptions);
+                    jobExitCode = RunStopSnoozeJob(jobOptions);
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace NoSnooze.Runner
             return jobExitCode;
         }
 
-        private ExitCode RunNoSnoozeJob(IOptions jobOptions)
+        private ExitCode RunStopSnoozeJob(IOptions jobOptions)
         {
             ExitCode jobExitCode = ExitCode.Success;
             try
@@ -64,7 +64,7 @@ namespace NoSnooze.Runner
                 switch (jobOptions.OptionsSet)
                 {
                     case CommandlineOptionsSet.None:
-                        Console.WriteLine("NoSnooze active - press any key to exit...");
+                        Console.WriteLine("StopSnooze active - press any key to exit...");
                         Console.ReadKey();
                         break;
                     case CommandlineOptionsSet.ProcessId:

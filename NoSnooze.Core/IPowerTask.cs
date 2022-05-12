@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoSnooze.Core
+namespace StopSnooze.Core
 {
     public interface IPowerTask : IPowerTaskSetSuccess, IPowerTaskWait, IPowerTaskClear
     {

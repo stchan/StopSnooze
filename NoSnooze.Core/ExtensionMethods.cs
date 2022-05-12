@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 #nullable disable
 
-namespace NoSnooze.Core
+namespace StopSnooze.Core
 {
     public static class ExtensionMethods
     {

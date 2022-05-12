@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoSnooze.Core.Exceptions
+namespace StopSnooze.Core.Exceptions
 {
-    public class ShellExecuteException : NoSnoozeException
+    public class ShellExecuteException : StopSnoozeException
     {
         public ShellExecuteException(string message) : base(message)
         { }

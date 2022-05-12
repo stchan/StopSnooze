@@ -1,4 +1,4 @@
-﻿namespace NoSnooze.Runner
+﻿namespace StopSnooze.Runner
 {
     /// <summary>
     /// Exit codes returned to shell
