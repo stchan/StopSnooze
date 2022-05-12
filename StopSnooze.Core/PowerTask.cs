@@ -35,7 +35,7 @@ namespace StopSnooze.Core
             if (previousState == 0)
             {
                 // Failed to change execution state
-                throw new StateChangeException(StateChangeFailure.SetNoSnoozeFailed.Message(), EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+                throw new StateChangeException(StateChangeFailure.SetStopSnoozeFailed.Message(), EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
             }
             else
             {
@@ -55,7 +55,7 @@ namespace StopSnooze.Core
             if (previousState == 0)
             {
                 // Failed to change execution state
-                throw new StateChangeException(StateChangeFailure.SetNoSnoozeFailed.Message(), EXECUTION_STATE.ES_CONTINUOUS);
+                throw new StateChangeException(StateChangeFailure.SetStopSnoozeFailed.Message(), EXECUTION_STATE.ES_CONTINUOUS);
             }
             else
             {

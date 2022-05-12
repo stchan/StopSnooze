@@ -10,9 +10,9 @@ namespace StopSnooze.Core
     public enum StateChangeFailure
     {
         [EnumMessage("Failed to set StopSnooze state - could not set execution state flags (EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS)")]
-        SetNoSnoozeFailed,
+        SetStopSnoozeFailed,
         [EnumMessage("Failed to clear StopSnooze state - could not set execution state flags (EXECUTION_STATE.ES_CONTINUOUS)")]
-        ClearNoSnoozeFailed
+        ClearStopSnoozeFailed
     }
 
     public enum WaitExitResult

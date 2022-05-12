@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "NoSnooze.Runner": {
+    "StopSnooze.Runner": {
       "commandName": "Project"
     }
   }
