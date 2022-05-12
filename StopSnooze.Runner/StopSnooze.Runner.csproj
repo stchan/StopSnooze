@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NoSnooze.Core\StopSnooze.Core.csproj" />
+    <ProjectReference Include="..\StopSnooze.Core\StopSnooze.Core.csproj" />
   </ItemGroup>
 
 </Project>

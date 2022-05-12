@@ -10,6 +10,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="App.config" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.TestPlatform.TestHost" Version="17.1.0" />
 		<PackageReference Include="xunit" Version="2.4.1" />
 		<PackageReference Include="xunit.core" Version="2.4.1" />
@@ -20,8 +24,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\NoSnooze.Core\StopSnooze.Core.csproj" />
-		<ProjectReference Include="..\NoSnooze.Runner\StopSnooze.Runner.csproj" />
+	  <ProjectReference Include="..\StopSnooze.Core\StopSnooze.Core.csproj" />
+	  <ProjectReference Include="..\StopSnooze.Runner\StopSnooze.Runner.csproj" />
 	</ItemGroup>
 
 </Project>
