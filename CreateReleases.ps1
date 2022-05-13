@@ -8,7 +8,6 @@ Set-Location -Path $PSScriptRoot
 # get the version
 [xml]$commonbuildinfo = Get-Content Directory.Build.props
 $publishversion = $commonbuildinfo.Project.PropertyGroup.Version
-echo $publishversion
 
 # Remove old stuff
 Remove-Item -path "$PSScriptRoot\Publish\win-arm64" -recurse -ErrorAction SilentlyContinue
@@ -22,5 +21,6 @@ dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_
 certutil -hashfile Publish\win-arm64\StopSnooze.exe SHA512 | tee Publish\win-arm64\NoSnooze.exe.sha512
 certutil -hashfile Publish\win-x64\StopSnooze.exe SHA512 | tee Publish\win-x64\NoSnooze.exe.sha512
 
+# Create the archives
 Compress-Archive -Path "Publish\win-arm64\*" -DestinationPath "Publish\win-arm64\StopSnooze_$publishversion`_win-arm64.zip"
 Compress-Archive -Path "Publish\win-x64\*" -DestinationPath "Publish\win-x64\StopSnooze_$publishversion`_win-x64.zip"
