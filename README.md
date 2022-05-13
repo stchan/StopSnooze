@@ -4,7 +4,7 @@
 64-bit Windows with .NET 6.0 support.
 
 **Binaries**<br/>
-Check the [releases](https://github.com/stchan/StopSnooze) page for prebuilt executables.
+Check the [releases](https://github.com/stchan/StopSnooze/releases) page for prebuilt executables.
 
 **License**<br/>
 StopSnooze is GPLv3.
@@ -16,7 +16,8 @@ StopSnooze is GPLv3.
     Options:
 
         -p, --pid       Wait on process. Mutually exclusive with -x
-        -x, --shx       Execute command, then wait on spawned process. Mutually exclusive with -p
+        -x, --shx       Execute command, then wait on spawned process. 
+                        Mutually exclusive with -p
         -w, --wait      Wait for specified number of seconds
 
 **Examples:**
