@@ -1,13 +1,13 @@
-<i>**StopSnooze**</i> is a console application which prevents Windows from sleeping while it is running.
+<i>**StopSnooze**</i> is a console application which prevents Windows from sleeping.
 
 **Requirements**<br/>
-A version of 64-bit Windows with .NET 6.0 single file deployment support.
+64-bit Windows with .NET 6.0 support.
 
 **Binaries**<br/>
 Check the [releases](https://github.com/stchan/StopSnooze) page for prebuilt executables.
 
 **License**<br/>
-StopSnooze is released under GPLv3.
+StopSnooze is GPLv3.
 
 **Usage:**
 ```
