@@ -53,6 +53,8 @@ Prevents sleep until the user presses any key, or terminates the shell.
 
 <br/>**Changelog**
 
+1.0.4 - Fixed issue with parsing -x/--shx option.
+
 1.0.3 - Renamed to StopSnooze. NoSnooze is a brand of caffeine pills sold by Circle K in the USA.
 
 1.0.2 - First public release as NoSnooze.
