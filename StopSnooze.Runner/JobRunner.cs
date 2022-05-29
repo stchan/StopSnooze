@@ -81,7 +81,7 @@ namespace StopSnooze.Runner
                         using (Process shellProcess = new Process())
                         {
                             int firstSpaceIndex = jobOptions.ShellExecute.IndexOf(' ');
-                            if (firstSpaceIndex == -1)
+                            if (firstSpaceIndex == -1 || File.Exists(jobOptions.ShellExecute))
                             {
                                 shellProcess.StartInfo.FileName = jobOptions.ShellExecute;
                             }
