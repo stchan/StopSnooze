@@ -18,8 +18,8 @@ dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_
 dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-arm64
 
 # Compute hashes
-certutil -hashfile Publish\win-arm64\StopSnooze.exe SHA512 | tee Publish\win-arm64\NoSnooze.exe.sha512
-certutil -hashfile Publish\win-x64\StopSnooze.exe SHA512 | tee Publish\win-x64\NoSnooze.exe.sha512
+certutil -hashfile Publish\win-arm64\StopSnooze.exe SHA512 | tee Publish\win-arm64\StopSnooze.exe.sha512
+certutil -hashfile Publish\win-x64\StopSnooze.exe SHA512 | tee Publish\win-x64\StopSnooze.exe.sha512
 
 # Create the archives
 Compress-Archive -Path "Publish\win-arm64\*" -DestinationPath "Publish\win-arm64\StopSnooze_$publishversion`_win-arm64.zip"
