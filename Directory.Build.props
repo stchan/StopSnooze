@@ -4,10 +4,10 @@
 		<Copyright>Copyright © 2022</Copyright>
 		<Product>StopSnooze</Product>
 		<AssemblyProduct>StopSnooze</AssemblyProduct>
-		<AssemblyVersion>1.0.4.0</AssemblyVersion>
+		<AssemblyVersion>1.0.5.0</AssemblyVersion>
 		<AssemblyTrademark></AssemblyTrademark>
 		<AssemblyCulture></AssemblyCulture>
-		<FileVersion>1.0.4.0</FileVersion>
-		<Version>1.0.4.0</Version>
+		<FileVersion>1.0.5.0</FileVersion>
+		<Version>1.0.5.0</Version>
 	</PropertyGroup>
 </Project>
