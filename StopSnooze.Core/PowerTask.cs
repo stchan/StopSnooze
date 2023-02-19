@@ -29,17 +29,23 @@ namespace StopSnooze.Core
         /// </summary>
         /// <exception cref="StateChangeException">Thrown if the execution state could not be changed</exception>
         /// <returns><see cref="IPowerTaskSetSuccess"/></returns>
-        public IPowerTaskSetSuccess Set()
+        public IPowerTaskSetSuccess Set(bool allowDisplaySleep)
         {
-            uint previousState = NativeMethods.SetThreadExecutionState(EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+            EXECUTION_STATE newState = (EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+            if (allowDisplaySleep) 
+            {
+                newState = (EXECUTION_STATE.ES_SYSTEM_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+            }
+
+            uint previousState = NativeMethods.SetThreadExecutionState(newState);
             if (previousState == 0)
             {
                 // Failed to change execution state
-                throw new StateChangeException(StateChangeFailure.SetStopSnoozeFailed.Message(), EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+                throw new StateChangeException(StateChangeFailure.SetStopSnoozeFailed.Message(), newState);
             }
             else
             {
-                this.PowerState = (EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
+                this.PowerState = newState;
             }
             this.PreviousPowerState = (EXECUTION_STATE)previousState;
             return this;

@@ -10,7 +10,7 @@ namespace StopSnooze.Core
     {
         EXECUTION_STATE? PreviousPowerState { get; }
         EXECUTION_STATE? PowerState { get; }
-        public IPowerTaskSetSuccess Set();
+        public IPowerTaskSetSuccess Set(bool allowDisplaySleep);
     }
 
     public interface IPowerTaskSetSuccess : IPowerTaskWait, IPowerTaskClear

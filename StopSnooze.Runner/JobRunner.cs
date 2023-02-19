@@ -60,7 +60,7 @@ namespace StopSnooze.Runner
             ExitCode jobExitCode = ExitCode.Success;
             try
             {
-                _powerTask.Set();
+                _powerTask.Set(true);
                 switch (jobOptions.OptionsSet)
                 {
                     case CommandlineOptionsSet.None:

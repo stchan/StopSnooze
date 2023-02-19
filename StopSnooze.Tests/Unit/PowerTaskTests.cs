@@ -14,32 +14,44 @@ namespace StopSnooze.Tests.Unit
 {
     public class PowerTaskTests
     {
-        [Fact]
-        public void Set()
+        [InlineData(true)]
+        [InlineData(false)]
+        [Theory]
+        public void Set(bool allowDisplaySleep)
         {
-            var powerTaskSetResult = PowerTask.Create().Set();
+            EXECUTION_STATE newState = (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
+            if (allowDisplaySleep)
+                newState = (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_SYSTEM_REQUIRED);
+            var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
             Assert.True(powerTask!.PreviousPowerState != 0);
-            Assert.True(powerTask.PowerState == (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED));
+            Assert.True(powerTask.PowerState == newState);
             NativeMethods.SetThreadExecutionState(Core.EXECUTION_STATE.ES_CONTINUOUS);
         }
 
-        [Fact]
-        public void Clear()
+        [InlineData(true)]
+        [InlineData(false)]
+        [Theory]
+        public void Clear(bool allowDisplaySleep)
         {
-            var powerTaskSetResult = PowerTask.Create().Set();
+            EXECUTION_STATE newState = (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED);
+            if (allowDisplaySleep)
+                newState = (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_SYSTEM_REQUIRED);
+            var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
-            Assert.True(powerTask!.PowerState == (EXECUTION_STATE.ES_CONTINUOUS | EXECUTION_STATE.ES_DISPLAY_REQUIRED));
+            Assert.True(powerTask!.PowerState == newState);
             powerTaskSetResult.Clear();
             Assert.True(powerTask.PowerState == EXECUTION_STATE.ES_CONTINUOUS);
         }
 
-        [Fact]
-        public void WaitProcess_Success()
+        [InlineData(true)]
+        [InlineData(false)]
+        [Theory]
+        public void WaitProcess_Success(bool allowDisplaySleep)
         {
-            var powerTaskSetResult = PowerTask.Create().Set();
+            var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
             ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "timeout.exe", Arguments = "/t 20 /nobreak" };
@@ -51,10 +63,12 @@ namespace StopSnooze.Tests.Unit
             }
         }
 
-        [Fact]
-        public void WaitProcess_Notfound()
+        [InlineData(true)]
+        [InlineData(false)]
+        [Theory]
+        public void WaitProcess_Notfound(bool allowDisplaySleep)
         {
-            var powerTaskSetResult = PowerTask.Create().Set();
+            var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
             // Note this test relies on Windows Process IDs being a multiple of 4.
@@ -62,10 +76,12 @@ namespace StopSnooze.Tests.Unit
             var waitException = Assert.Throws<WaitException>(() => powerTaskSetResult.WaitProcess(1001));
         }
 
-        [Fact]
-        public void WaitProcess_TimeoutExceeded()
+        [InlineData(true)]
+        [InlineData(false)]
+        [Theory]
+        public void WaitProcess_TimeoutExceeded(bool allowDisplaySleep)
         {
-            var powerTaskSetResult = PowerTask.Create().Set();
+            var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
             ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "timeout.exe", Arguments = "/t 20 /nobreak", LoadUserProfile = false };
