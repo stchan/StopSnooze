@@ -1,11 +1,13 @@
 ﻿using CommandLine;
 using CommandLine.Text;
+using System.ComponentModel.DataAnnotations;
 #nullable disable
 
 namespace StopSnooze.Runner
 {
     public interface IOptions
     {
+        public bool DisplaySleep { get; set; }
         public int? PID { get; set; }
         public int? MaxWaitTime { get; set; }
         public string ShellExecute { get; set; }
@@ -13,8 +15,12 @@ namespace StopSnooze.Runner
         public CommandlineOptionsSet OptionsSet { get; }
         public bool Validates();
     }
-    public class Options :IOptions
+
+    public class Options : IOptions
     {
+        [Option('d', "display", Required = false, HelpText = "Allow display to sleep.")]
+        public bool DisplaySleep { get; set; }
+
         [Option('p', "pid", SetName = "ProcId", Required = false, Default = null, HelpText = "Wait for process id (pid) to exit. Value must be greater than or equal to 0. Cannot be combined with the [-x|--shx] option.")]
         public int? PID { get; set; }
 
@@ -35,7 +41,8 @@ namespace StopSnooze.Runner
                     new Example("Prevent sleep while process id (pid) 2942 is running", new Options { PID = 2942}),
                     new Example("Prevent sleep for up to 60 seconds while process id (pid) 2942 is running", new Options { MaxWaitTime = 60, PID = 2942}),
                     new Example("Start notepad.exe, and prevent sleep while it is running", new Options { ShellExecute = "notepad.exe" }),
-                    new Example("Start notepad.exe, and prevent sleep for up to 60 seconds while it is running", new Options { MaxWaitTime = 60, ShellExecute = "notepad.exe" })
+                    new Example("Start notepad.exe, and prevent sleep for up to 60 seconds while it is running", new Options { MaxWaitTime = 60, ShellExecute = "notepad.exe" }),
+                    new Example("Prevent system sleep, but allow display to sleep", new Options { DisplaySleep = true })
                 };
             }
         }

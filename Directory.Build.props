@@ -1,7 +1,7 @@
 ﻿<Project>
 	<PropertyGroup>
 		<Company>Sherman Chan</Company>
-		<Copyright>Copyright © 2022</Copyright>
+		<Copyright>Copyright © 2023</Copyright>
 		<Product>StopSnooze</Product>
 		<AssemblyProduct>StopSnooze</AssemblyProduct>
 		<AssemblyVersion>1.0.6.0</AssemblyVersion>
