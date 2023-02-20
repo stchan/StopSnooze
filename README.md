@@ -11,10 +11,11 @@ StopSnooze is GPLv3.
 
 **Usage:**
 ```
-    StopSnooze [{-p PID | -x COMMAND}] [-w TIME]
+    StopSnooze [-d] [{-p PID | -x COMMAND}] [-w TIME]
 ```
     Options:
 
+        -d, --display   Allows the display to sleep
         -p, --pid       Wait on process. Mutually exclusive with -x
         -x, --shx       Execute command, then wait on spawned process. 
                         Mutually exclusive with -p
@@ -49,9 +50,15 @@ Starts a new shell, and prevents sleep until it exits.
     StopSnooze
 ```
 Prevents sleep until the user presses any key, or terminates the shell.
+```
+    StopSnooze -d
+```
+Prevents system sleep, but allows the display to sleep, until the user presses any key, or terminates the shell. May be combined with other options.
 
 
 <br/>**Changelog**
+
+1.0.6 - Added "-d / --display" option.
 
 1.0.5 - No new functionality, removed single file trimming.
 
