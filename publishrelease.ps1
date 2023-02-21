@@ -17,6 +17,9 @@ Remove-Item -path "$PSScriptRoot\Publish\win-x64" -recurse -ErrorAction Silently
 dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-x64
 dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-arm64
 
+# sign the executables
+signtool.exe sign /n "Open Source Developer, Sherman Chan" /t http://time.certum.pl /fd sha256 /v "Publish\win-arm64\*.exe" "Publish\win-x64\*.exe"
+
 # Compute hashes
 certutil -hashfile Publish\win-arm64\StopSnooze.exe SHA512 | tee Publish\win-arm64\StopSnooze.exe.sha512
 certutil -hashfile Publish\win-x64\StopSnooze.exe SHA512 | tee Publish\win-x64\StopSnooze.exe.sha512
