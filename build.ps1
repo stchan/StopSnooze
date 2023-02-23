@@ -1,3 +1,8 @@
+param (
+   [string]$config = $(throw "-config is required."),
+   [switch]$sign = $false
+)
+
 & "$env:ProgramFiles\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1"
 if ((Get-Command "msbuild.exe" -ErrorAction SilentlyContinue) -eq $null) 
 { 
@@ -10,13 +15,13 @@ Set-Location -Path $PSScriptRoot
 [xml]$commonbuildinfo = Get-Content Directory.Build.props
 $publishversion = $commonbuildinfo.Project.PropertyGroup.Version
 
-dotnet clean --configuration Release
+dotnet clean --configuration $config
 
 # build
-dotnet build --configuration Release
+dotnet build --configuration $config
 
 # tests
-dotnet test StopSnooze.Tests\StopSnooze.Tests.csproj -c Release --no-build
+dotnet test StopSnooze.Tests\StopSnooze.Tests.csproj -c $config --no-build
 
 # Remove old stuff
 Remove-Item -path "$PSScriptRoot\Publish\win-arm64" -recurse -ErrorAction SilentlyContinue
@@ -24,11 +29,14 @@ Remove-Item -path "$PSScriptRoot\Publish\win-x64" -recurse -ErrorAction Silently
 
 # Publish x64/arm64
 # (publishing the solution because StopSnooze.Runner uses the solution name as the exe name)
-dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-x64
-dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-arm64
+dotnet publish StopSnooze.sln /p:Configuration=$config /p:PublishProfile=Folder_win-x64
+dotnet publish StopSnooze.sln /p:Configuration=$config /p:PublishProfile=Folder_win-arm64
 
-# sign the executables
-signtool.exe sign /n "Open Source Developer, Sherman Chan" /t http://time.certum.pl /fd sha256 /v "Publish\win-arm64\*.exe" "Publish\win-x64\*.exe"
+# sign the executables if -sign was specified
+if ($sign -eq $true)
+{
+   signtool.exe sign /n "Open Source Developer, Sherman Chan" /t http://time.certum.pl /fd sha256 /v "Publish\win-arm64\*.exe" "Publish\win-x64\*.exe"
+}
 
 # Compute hashes
 certutil -hashfile Publish\win-arm64\StopSnooze.exe SHA512 | tee Publish\win-arm64\StopSnooze.exe.sha512
