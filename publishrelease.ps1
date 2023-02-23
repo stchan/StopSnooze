@@ -1,3 +1,4 @@
+& "$env:ProgramFiles\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1"
 if ((Get-Command "msbuild.exe" -ErrorAction SilentlyContinue) -eq $null) 
 { 
    Write-Host "msbuild.exe not found in PATH."
@@ -9,11 +10,20 @@ Set-Location -Path $PSScriptRoot
 [xml]$commonbuildinfo = Get-Content Directory.Build.props
 $publishversion = $commonbuildinfo.Project.PropertyGroup.Version
 
+dotnet clean --configuration Release
+
+# build
+dotnet build --configuration Release
+
+# tests
+dotnet test StopSnooze.Tests\StopSnooze.Tests.csproj -c Release --no-build
+
 # Remove old stuff
 Remove-Item -path "$PSScriptRoot\Publish\win-arm64" -recurse -ErrorAction SilentlyContinue
 Remove-Item -path "$PSScriptRoot\Publish\win-x64" -recurse -ErrorAction SilentlyContinue
 
 # Publish x64/arm64
+# (publishing the solution because StopSnooze.Runner uses the solution name as the exe name)
 dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-x64
 dotnet publish StopSnooze.sln /p:Configuration=Release /p:PublishProfile=Folder_win-arm64
 
