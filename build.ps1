@@ -3,12 +3,33 @@ param (
    [switch]$sign = $false
 )
 
-& "$env:ProgramFiles\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1"
+if (Test-Path "$env:ProgramFiles\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1")
+{
+   $initvsdevshell = "$env:ProgramFiles\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1"
+}
+elseif (Test-Path "$env:ProgramFiles\Microsoft Visual Studio\2022\Professional\Common7\Tools\Launch-VsDevShell.ps1")
+{
+   $initvsdevshell = "$env:ProgramFiles\Microsoft Visual Studio\2022\Professional\Common7\Tools\Launch-VsDevShell.ps1"
+}
+elseif (Test-Path "$env:ProgramFiles\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1")
+{
+      $initvsdevshell = "$env:ProgramFiles\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"
+}
+
+if ($initvsdevshell)
+{ 
+   & $initvsdevshell
+}
+else
+{
+   Write-Output 'Visual Studio 2022 was not found - VS developer shell launch script will not be run.'
+}
 if ((Get-Command "msbuild.exe" -ErrorAction SilentlyContinue) -eq $null) 
 { 
-   Write-Host "msbuild.exe not found in PATH."
+   Write-Host "msbuild.exe not found in PATH. Exiting."
    exit 1
 }
+
 Set-Location -Path $PSScriptRoot
 
 # get the version
