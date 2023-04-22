@@ -56,7 +56,7 @@ dotnet publish StopSnooze.sln /p:Configuration=$config /p:PublishProfile=Folder_
 # sign the executables if -sign was specified
 if ($sign -eq $true)
 {
-   signtool.exe sign /n "Open Source Developer, Sherman Chan" /t http://time.certum.pl /fd sha256 /v "Publish\win-arm64\*.exe" "Publish\win-x64\*.exe"
+   signtool.exe sign /sha1 $env:CodeSignHash /t http://time.certum.pl /fd sha256 /v "Publish\win-arm64\*.exe" "Publish\win-x64\*.exe"
 }
 
 # Compute hashes
