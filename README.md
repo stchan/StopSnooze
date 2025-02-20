@@ -58,6 +58,8 @@ Prevents system sleep, but allows the display to sleep, until the user presses a
 
 <br/>**Changelog**
 
+1.1.0 - Target .NET 8.0. No new functionality.
+
 1.0.6 - Added **-d/--display** option.
 
 1.0.5 - No new functionality, removed single file trimming.
