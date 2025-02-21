@@ -54,7 +54,7 @@ namespace StopSnooze.Tests.Unit
             var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
-            ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "timeout.exe", Arguments = "/t 20 /nobreak" };
+            ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "powershell.exe", Arguments = "Start-sleep -seconds 20", LoadUserProfile = false, CreateNoWindow = true };
             using (Process? testWaitProcess = Process.Start(testStartInfo))
             {
                 Assert.NotNull(testWaitProcess);
@@ -84,7 +84,7 @@ namespace StopSnooze.Tests.Unit
             var powerTaskSetResult = PowerTask.Create().Set(allowDisplaySleep);
             IPowerTask? powerTask = powerTaskSetResult as IPowerTask;
             Assert.NotNull(powerTask);
-            ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "timeout.exe", Arguments = "/t 20 /nobreak", LoadUserProfile = false };
+            ProcessStartInfo testStartInfo = new ProcessStartInfo() { FileName = "powershell.exe", Arguments = "Start-sleep -seconds 20", LoadUserProfile = false, CreateNoWindow = true };
             using (Process? testWaitProcess = Process.Start(testStartInfo))
             {
                 Assert.NotNull(testWaitProcess);
