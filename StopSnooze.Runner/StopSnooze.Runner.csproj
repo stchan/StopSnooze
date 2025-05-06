@@ -8,7 +8,7 @@
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<Platforms>AnyCPU;x64</Platforms>
 		<DebugType>embedded</DebugType>
-		<AssemblyName>$(SolutionName)</AssemblyName>
+		<AssemblyName>StopSnooze</AssemblyName>
 		<SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	</PropertyGroup>
