@@ -50,8 +50,8 @@ Remove-Item -path "$PSScriptRoot\Publish\win-x64" -recurse -ErrorAction Silently
 
 # Publish x64/arm64
 # (publishing the solution because StopSnooze.Runner uses the solution name as the exe name)
-dotnet publish StopSnooze.sln /p:Configuration=$config /p:PublishProfile=Folder_win-x64
-dotnet publish StopSnooze.sln /p:Configuration=$config /p:PublishProfile=Folder_win-arm64
+dotnet publish StopSnooze.Runner\StopSnooze.Runner.csproj /p:Configuration=$config /p:PublishProfile=Folder_win-x64
+dotnet publish StopSnooze.Runner\StopSnooze.Runner.csproj /p:Configuration=$config /p:PublishProfile=Folder_win-arm64
 
 # sign the executables if -sign was specified
 if ($sign -eq $true)
