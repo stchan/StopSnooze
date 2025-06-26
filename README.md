@@ -1,7 +1,7 @@
 <i>**StopSnooze**</i> is a console application which prevents Windows from sleeping.
 
 **Requirements**<br/>
-64-bit Windows 8 (or newer)
+Windows OS with .NET 8.0 support.
 
 **Binaries**<br/>
 Check the [releases](https://github.com/stchan/StopSnooze/releases) page for prebuilt executables.
